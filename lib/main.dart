@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       ),
       home: const ChatPage(),
       //home: const MyCorrectionPage(),
-      //debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
