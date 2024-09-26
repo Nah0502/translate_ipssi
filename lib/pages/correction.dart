@@ -4,14 +4,14 @@ import 'package:translate_ipssi/widgets/language_dropdown.dart';
 import 'package:translate_ipssi/widgets/text_input_area.dart';
 import 'package:translate_ipssi/widgets/navigation_bar.dart' as custom;
 
-class MyTranslatePage extends StatefulWidget {
-  const MyTranslatePage({super.key});
+class MyCorrectionPage extends StatefulWidget {
+  const MyCorrectionPage({super.key});
 
   @override
-  State<MyTranslatePage> createState() => _MyTranslatePageState();
+  State<MyCorrectionPage> createState() => _MyCorrectionPageState();
 }
 
-class _MyTranslatePageState extends State<MyTranslatePage> {
+class _MyCorrectionPageState extends State<MyCorrectionPage> {
   final List<String> _languages = ['Anglais', 'Français', 'Espagnol', 'Arabe', 'Chinois'];
   String _selectedLanguage = 'Anglais';
   final List<Map<String, String>> _messages = [];
@@ -26,7 +26,7 @@ class _MyTranslatePageState extends State<MyTranslatePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('TRANSLATE'),
+        title: const Text('CORRECTION'),
         backgroundColor: const Color.fromARGB(255, 20, 48, 70),
         foregroundColor: Colors.white,
       ),
@@ -53,7 +53,7 @@ class _MyTranslatePageState extends State<MyTranslatePage> {
                     'sender': 'user',
                   });
                   _messages.add({
-                    'text': 'La réponse de l\'IA pour "${_textController.text}"',
+                    'text': 'Response of IA "${_textController.text}"',
                     'sender': 'ai',
                   });
                   _textController.clear();

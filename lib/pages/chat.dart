@@ -4,16 +4,14 @@ import 'package:translate_ipssi/widgets/language_dropdown.dart';
 import 'package:translate_ipssi/widgets/text_input_area.dart';
 import 'package:translate_ipssi/widgets/navigation_bar.dart' as custom;
 
-class MyTranslatePage extends StatefulWidget {
-  const MyTranslatePage({super.key});
+class ChatPage extends StatefulWidget {
+  const ChatPage({super.key});
 
   @override
-  State<MyTranslatePage> createState() => _MyTranslatePageState();
+  State<ChatPage> createState() => _ChatPageState();
 }
 
-class _MyTranslatePageState extends State<MyTranslatePage> {
-  final List<String> _languages = ['Anglais', 'Français', 'Espagnol', 'Arabe', 'Chinois'];
-  String _selectedLanguage = 'Anglais';
+class _ChatPageState extends State<ChatPage> {
   final List<Map<String, String>> _messages = [];
   final TextEditingController _textController = TextEditingController();
 
@@ -32,16 +30,8 @@ class _MyTranslatePageState extends State<MyTranslatePage> {
       ),
       body: Column(
         children: [
+          
           const SizedBox(height: 20),
-          LanguageDropdown(
-            selectedLanguage: _selectedLanguage,
-            languages: _languages,
-            onChanged: (String? newValue) {
-              setState(() {
-                _selectedLanguage = newValue!;
-              });
-            },
-          ),
           Expanded(child: messagesListView()),
           TextInputArea(
             textController: _textController,
