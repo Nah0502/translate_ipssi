@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:translate_ipssi/services/groq.dart';
-import 'package:translate_ipssi/widgets/skeleton.dart';
 
 class MyTranslatePage extends StatefulWidget {
   const MyTranslatePage({super.key});
@@ -16,8 +14,6 @@ class _MyTranslatePageState extends State<MyTranslatePage> {
   final List<Map<String, String>> _messages = [];//Messages enregistré (utilistaeur et IA)
 
   final TextEditingController _textController = TextEditingController();// recuperer l'input de l'utilisateur
-class MyTranslatePage extends StatelessWidget {
-  const MyTranslatePage({super.key});
 
   Future<dynamic> getData() async {
     dynamic groqService = await GroqService().getData();
@@ -189,30 +185,5 @@ class MyTranslatePage extends StatelessWidget {
         ],
       ),
     );
-  }
-
-      /*body: FutureBuilder<dynamic>(
-        future: getData(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return Skeleton();
-          } else if (snapshot.hasError) {
-            return Center(
-              child: Text('Erreur: ${snapshot.error}'),
-            );
-          } else if (snapshot.hasData) {
-            // return Center(child: Text('Données: ${snapshot.data}'));
-            return ListView.builder(
-              itemCount: 1,
-              itemBuilder: (context, index) {
-                return Center(child: Text('Données: ${snapshot.data}'));
-              },
-            );
-          } else {
-            return const Text('Aucune donnée disponible');
-          }
-        },
-      ),
-    );*/
   }
 }
